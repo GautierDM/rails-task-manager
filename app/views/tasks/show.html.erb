@@ -1,0 +1,18 @@
+<h1><%=@task.title%></h1>
+<p class="form-control"><%=@task.details%></p>
+ <% if @task.completed %>
+  <div class="form-check">
+    <input type="checkbox" class="custom-control-input" id="defaultunchecked" checked>
+    <label class="form-check-label" for="exampleCheck1">This task is completed</label>
+  </div>
+ <% else %>
+  <div class="form-check">
+      <input type="checkbox" class="custom-control-input" id="defaultunchecked">
+      <label class="form-check-label" for="exampleCheck1">This task is not completed!</label>
+  </div>
+  <% end %>
+<p><%= link_to "Back to task manager", tasks_path %></p>
+
+
+<button type="button" class="btn btn-secondary"><%= link_to "Edit Task", edit_task_path %>
+</button>

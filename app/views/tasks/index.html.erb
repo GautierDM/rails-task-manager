@@ -1,0 +1,33 @@
+<div class="container">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Pro Task Manager</h1>
+    <p class="lead">This app will rock your word and change your life. You can thank the genius Gautier for it.</p>
+  </div>
+</div>
+
+
+
+  <h1>Liste de mes tâches</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <div class="custom-control custom-checkbox">
+        <% if task.completed %>
+          <input type="checkbox" class="custom-control-input" id="defaultuncheckedDisabled" checked disabled>
+        <% else %>
+          <input type="checkbox" class="custom-control-input" id="defaultuncheckedDisabled" disabled>
+        <% end %>
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to task_path(task.id),
+        method: :delete,
+        data: { confirm: "Are you sure mate?" } do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+       <% end %>
+      </div>
+    <% end %>
+  </ul>
+
+
+   <p><%= link_to "Add a new task", new_task_path %></p>
+</div>
